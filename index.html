@@ -3,186 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year - GIT Education</title>
+    <title>Difficulty Levels</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom, #ffcccb, #f0f8ff);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+            margin: 20px;
         }
         .container {
-            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-        h1 {
-            font-size: 3rem;
-            color: #ff4500;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            animation: glow 2s infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6347, 0 0 20px #ffa07a;
-            }
-            to {
-                text-shadow: 0 0 10px #ff6347, 0 0 20px #ffa07a, 0 0 30px #ff4500;
-            }
-        }
-        p {
-            font-size: 1.2rem;
-            color: #333;
-        }
-        input[type="text"], input[type="file"] {
-            padding: 10px;
-            font-size: 18px;
-            border: 2px solid #ff4500;
-            border-radius: 25px;
-            width: 300px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 10px;
-        }
-        input[type="file"] {
-            opacity: 0;
-            position: absolute;
-            z-index: -1;
-        }
-        .file-label {
-            display: inline-block;
+        .button {
             padding: 10px 20px;
             font-size: 18px;
-            color: white;
-            background: linear-gradient(to right, #ff4500, #ff6347);
-            border: none;
-            border-radius: 25px;
             cursor: pointer;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            margin-top: 10px;
-        }
-        .file-label:hover {
-            background: linear-gradient(to right, #ff6347, #ff4500);
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 18px;
-            color: white;
-            background: linear-gradient(to right, #ff4500, #ff6347);
             border: none;
-            border-radius: 25px;
-            cursor: pointer;
+            border-radius: 5px;
+        }
+        .easy { background-color: lightgreen; }
+        .medium { background-color: gold; }
+        .advanced { background-color: tomato; }
+        #content {
             margin-top: 20px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
         }
-        button:hover {
-            background: linear-gradient(to right, #ff6347, #ff4500);
-        }
-        .message {
-            margin-top: 30px;
-            font-size: 1.5rem;
-            color: #333;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 14px;
-            color: #666;
-        }
-        .footer a {
-            color: #ff4500;
+        .button a {
             text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
+            color: black;
+            display: block;
         }
     </style>
+    
 </head>
 <body>
+    <h1>Select Course</h1>
     <div class="container">
-        <h1>🎉 Happy New Year 2025! 🎉</h1>
-        <p>Welcome to GIT Education. Please enter your name and upload your photo to receive a personalized message:</p>
-        <input type="text" id="nameInput" placeholder="Enter your name" aria-label="Enter your name">
-        <label for="imageInput" class="file-label">📁 Upload Your Photo</label>
-        <input type="file" id="imageInput" accept="image/*" aria-label="Upload your photo">
-        <button onclick="generateGreeting()">Submit</button>
-        <div class="message" id="message"></div>
-        <canvas id="canvas" style="display:none;"></canvas>
-        <a id="downloadLink" style="display:none;" download="HappyNewYear.png">Download Your Greeting</a>
+        <button class="button easy"><a href="home-dca.html">DCA</a></button>
+        <button class="button medium"><a href="#">ADCA</a></button>
+        <button class="button advanced"><a href="#">DFA</a></button>
     </div>
-
-    <div class="footer">
-        <p>Visit our website: <a href="https://www.giteducation.com" target="_blank">GIT Education</a></p>
-        <p>Developed by: Dhananjay Chauhan</p>
-    </div>
-
-    <script>
-        function generateGreeting() {
-            const name = document.getElementById('nameInput').value;
-            const imageInput = document.getElementById('imageInput').files[0];
-            const messageDiv = document.getElementById('message');
-            const canvas = document.getElementById('canvas');
-            const ctx = canvas.getContext('2d');
-
-            if (!name.trim() || !imageInput) {
-                messageDiv.textContent = 'Please enter your name and upload a photo to receive a personalized message.';
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                const img = new Image();
-                img.onload = function () {
-                    canvas.width = 800;
-                    canvas.height = 600;
-
-                    // Draw gradient background
-                    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-                    gradient.addColorStop(0, "#ffcccb");
-                    gradient.addColorStop(1, "#f0f8ff");
-                    ctx.fillStyle = gradient;
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                    // Draw uploaded image with rounded corners
-                    const aspectRatio = img.width / img.height;
-                    const imgWidth = canvas.width / 2;
-                    const imgHeight = imgWidth / aspectRatio;
-                    const imgX = canvas.width / 4;
-                    const imgY = 50;
-
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(imgX + 20, imgY);
-                    ctx.arcTo(imgX + imgWidth, imgY, imgX + imgWidth, imgY + imgHeight, 20);
-                    ctx.arcTo(imgX + imgWidth, imgY + imgHeight, imgX, imgY + imgHeight, 20);
-                    ctx.arcTo(imgX, imgY + imgHeight, imgX, imgY, 20);
-                    ctx.arcTo(imgX, imgY, imgX + imgWidth, imgY, 20);
-                    ctx.closePath();
-                    ctx.clip();
-                    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
-                    ctx.restore();
-
-                    // Add greeting text with styling
-                    ctx.fillStyle = '#ff4500';
-                    ctx.font = 'bold 40px Arial';
-                    ctx.textAlign = 'center';
-                    ctx.fillText("🎉 Happy New Year 2025 🎉", canvas.width / 2, canvas.height - 150);
-
-                    ctx.fillStyle = '#333';
-                    ctx.font = 'italic 30px Arial';
-                    ctx.fillText(`From GIT Education, ${name}!`, canvas.width / 2, canvas.height - 100);
-
-                    ctx.fillStyle = '#666';
-                    ctx.font = '20px Arial';
-                    ctx.fillText("Developed by: Dhananjay Chauhan", canvas.width / 2, canvas.height - 50);
-
-                    // Show download link
-                    const downloadLink = document.getElementById('downloadLink');
-                    downloadLink.style.display = 'block';
-                    downloadLink.href = canvas.toDataURL('image/png');
-                };
-                img.src = event.target.result;
-            };
-            reader.readAsDataURL(imageInput);
-        }
-    </script>
 </body>
 </html>
