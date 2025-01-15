@@ -1,396 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- ✅ SEO Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GIT Education - The Best Learning Platform for IT & Professional Training. Explore our courses and enhance your skills today.">
-    <meta name="keywords" content="GIT Education, IT Training, Online Courses, Web Development, Programming">
-    <meta name="author" content="GIT Education">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GIT Education - The Best Learning Platform for IT & Professional Training. Explore our courses and enhance your skills today."
+    />
+    <meta
+      name="keywords"
+      content="GIT Education, IT Training, Online Courses, Web Development, Programming"
+    />
+    <meta name="author" content="GIT Education" />
+
     <!-- ✅ Open Graph Meta Tags (For Social Sharing) -->
-    <meta property="og:title" content="GIT Education - Best Learning Platform">
-    <meta property="og:description" content="Enhance your career with expert-led courses at GIT Education.">
-    <meta property="og:image" content="https://giteducation.com/og-image.jpg">
-    <meta property="og:url" content="https://giteducation.com">
-    <meta property="og:type" content="website">
-    
+    <meta
+      property="og:title"
+      content="GIT Education - Best Learning Platform"
+    />
+    <meta
+      property="og:description"
+      content="Enhance your career with expert-led courses at GIT Education."
+    />
+    <meta property="og:image" content="https://giteducation.com/og-image.jpg" />
+    <meta property="og:url" content="https://giteducation.com" />
+    <meta property="og:type" content="website" />
+
     <title>GIT Education - Best Learning Platform</title>
-    
+
     <!-- ✅ Canonical URL -->
-    <link rel="canonical" href="https://giteducation.com">
-    
+    <link rel="canonical" href="https://giteducation.com" />
+
     <!-- ✅ Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    
+    <link rel="icon" type="image/png" href="favicon.png" />
+
     <!-- ✅ External Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
-        /* CSS Variables - Learning Theme */
-:root {
-    --primary-color: #2A9D8F;  /* Learning Green-Blue */
-    --secondary-color: #E9C46A; /* Creative Yellow */
-    --accent-color: #F4A261;    /* Motivating Orange */
-    --text-color: #264653;      /* Dark Blue */
-    --hover-color: #E76F51;     /* Deep Orange for Interaction */
-    --transition-speed: 0.3s;
-}
+      /* CSS Variables - Learning Theme */
+      :root {
+        --primary-color: #2a9d8f; /* Learning Green-Blue */
+        --secondary-color: #e9c46a; /* Creative Yellow */
+        --accent-color: #f4a261; /* Motivating Orange */
+        --text-color: #264653; /* Dark Blue */
+        --hover-color: #e76f51; /* Deep Orange for Interaction */
+        --transition-speed: 0.3s;
+        --gradient-bg: linear-gradient(135deg, #2a9d8f, #005f56);
+      }
 
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body {
-    font-family: "Arial", sans-serif;
-    color: var(--text-color);
-    background-color: #fff;
-}
+      body {
+        font-family: "Arial", sans-serif;
+        color: var(--text-color);
+        background-color: #fff;
+      }
 
-/* Fixed Header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: var(--primary-color);
+      /* Fixed Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: var(--gradient-bg);
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Ensure content doesn't overlap with the fixed header */
+      main {
+        margin-top: 100px; /* Adjust this value based on header height */
+        padding: 20px;
+      }
+
+      /* Header Top */
+      .header-top {
+        background: var(--secondary-color);
+        padding: 10px 0;
+        font-size: 14px;
+        border-bottom: 1px solid var(--accent-color);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Contact Info */
+      .contact-info a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-right: 15px;
+      }
+
+      /* Login Links */
+      .login-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 15px;
+        font-weight: 600;
+        padding: 10px 20px;
+        background: var(--accent-color);
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+      }
+
+      .login-links a:hover {
+        background: var(--hover-color);
+        color: #fff;
+        transform: scale(1.05); /* Adds a zoom effect on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Header Main */
+      .header-main {
+        background: var(--primary-color);
+        padding: 15px 0;
+        display: flex;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links li {
+        position: relative;
+        margin-left: 20px;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 15px;
+        transition: var(--transition-speed);
+      }
+
+      .nav-links li a:hover {
+        background: var(--hover-color);
+        color: #fff;
+        border-radius: 5px;
+      }
+
+      /* Dropdown Menu */
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links li:hover .dropdown {
+        display: block;
+      }
+
+      .dropdown li {
+        width: 200px;
+      }
+
+      .dropdown li a {
+        padding: 10px;
+        display: block;
+        color: var(--text-color);
+      }
+
+      .dropdown li a:hover {
+        background: var(--hover-color);
+        color: #fff;
+      }
+
+      /* Mobile Menu */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: var(--primary-color);
+          position: absolute;
+          top: 60px;
+          left: 0;
+          padding: 10px 0;
+          text-align: center;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        /* Adjust Button for smaller screens */
+        .login-links a {
+          padding: 12px 25px;
+          font-size: 14px;
+        }
+      }
+
+        /* 🌟 Footer Styling */
+.footer {
+    background: var(--gradient-bg, #002244); /* Uses variable or defaults to deep blue */
     color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 50px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Ensure content doesn't overlap with the fixed header */
-main {
-    margin-top: 120px; /* Adjust this value based on header height */
-    padding: 20px;
-}
-
-/* Header Top */
-.header-top {
-    background: var(--secondary-color);
-    padding: 10px 0;
-    font-size: 14px;
-    border-bottom: 1px solid var(--accent-color);
-}
-
-.container {
-    width: 90%;
+/* 🔹 Footer Layout */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+}
+
+/* 🔹 Footer Sections */
+.footer-section {
+    margin: 20px;
+    flex: 1;
+    min-width: 220px;
+    transition: transform var(--transition-speed, 0.3s ease-in-out);
+}
+
+.footer-section h3 {
+    color: var(--secondary-color, #4CAF50); /* Uses variable or defaults to green */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* 🟢 Animated Underline */
+.footer-section h3::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color, #4CAF50);
+    margin: 5px auto;
+    transition: width 0.4s ease-in-out;
+}
+
+.footer-section h3:hover::after {
+    width: 80px;
+}
+
+/* 🔹 Footer Links */
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color var(--transition-speed, 0.3s ease-in-out);
+}
+
+.footer-section a:hover {
+    color: var(--hover-color, #4CAF50);
+    text-decoration: underline;
+}
+
+/* 🔹 Social Media Buttons */
+.social-link {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 15px;
+    border: 2px solid var(--secondary-color, #4CAF50);
+    border-radius: 5px;
+    transition: all var(--transition-speed, 0.3s ease-in-out);
+}
+
+.social-link:hover {
+    background: var(--hover-color, #4CAF50);
+    color: #fff;
+}
+
+/* 🔹 Footer Bottom */
+.footer-bottom {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+}
+/* 🔹 Footer Links with Smooth Transition */
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color var(--transition-speed, 0.3s ease-in-out), transform 0.3s ease-in-out;
+}
+
+.footer-section a:hover {
+    color: var(--hover-color, #4CAF50);
+    text-decoration: underline;
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* 🔹 Social Media Buttons with Transition */
+.social-icons a {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 5px 10px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Slightly enlarges icons on hover */
+    color: var(--hover-color, #4CAF50);
+}
+/* 🌟 Modern Footer Styling */
+.footer {
+    background: rgba(0, 34, 68, 0.8); /* Semi-transparent deep blue */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* 🔹 Footer Layout */
+.footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
 }
 
-/* Contact Info */
-.contact-info a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin-right: 15px;
-}
-
-/* Login Links */
-.login-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin-left: 15px;
-}
-
-/* Header Main */
-.header-main {
-    background: var(--primary-color);
-    padding: 15px 0;
-    display: flex;
-}
-
-.logo img {
-    height: 50px;
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    position: relative;
-    margin-left: 20px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 15px;
-    transition: var(--transition-speed);
-}
-
-.nav-links li a:hover {
-    background: var(--hover-color);
-    color: #fff;
-    border-radius: 5px;
-}
-
-/* Dropdown Menu */
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--secondary-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 1000;
-}
-
-.nav-links li:hover .dropdown {
-    display: block;
-}
-
-.dropdown li {
-    width: 200px;
-}
-
-.dropdown li a {
-    padding: 10px;
-    display: block;
-    color: var(--text-color);
-}
-
-.dropdown li a:hover {
-    background: var(--hover-color);
-    color: #fff;
-}
-
-/* Mobile Menu */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: var(--primary-color);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-/* 🎨 CSS Variables */
-:root {
-    --primary-color: #2A9D8F;
-    --secondary-color: #E9C46A;
-    --accent-color: #F4A261;
-    --text-color: #264653;
-    --hover-color: #E76F51;
-    --gradient-bg: linear-gradient(135deg, #2A9D8F, #005F56);
-    --transition-speed: 0.3s;
-}
-
-/* 🌎 General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Poppins", sans-serif;
-    color: var(--text-color);
-    background-color: #fff;
-}
-
-/* 📌 Fixed Header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: var(--gradient-bg);
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Ensure content doesn't overlap */
-main {
-    margin-top: 100px;
+/* 🔹 Footer Sections */
+.footer-section {
+    margin: 20px;
+    flex: 1;
+    min-width: 250px;
     padding: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Light overlay for modern effect */
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* ✅ Responsive Navigation */
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
+.footer-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 255, 150, 0.3);
 }
 
-.nav-links li a {
+.footer-section h3 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* 🟢 Animated Underline */
+.footer-section h3::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #4CAF50;
+    margin: 5px auto;
+    transition: width 0.4s ease-in-out;
+}
+
+.footer-section h3:hover::after {
+    width: 80px;
+}
+
+/* 🔹 Footer Links with Modern Transition */
+.footer-section a {
+    color: #ddd;
     text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    padding: 12px 18px;
-    transition: var(--transition-speed);
+    font-weight: 500;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: inline-block;
 }
 
-.nav-links li a:hover {
-    background: var(--hover-color);
-    color: #fff;
-    border-radius: 6px;
+.footer-section a:hover {
+    color: #ee6e05;
+    text-decoration: underline;
+    transform: translateX(5px);
 }
 
-/* 🔽 Dropdown Menu */
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.nav-links li:hover .dropdown {
-    display: block;
-}
-
-.dropdown li a {
-    color: var(--text-color);
+/* 🔹 Social Media Buttons with Modern Glow */
+.social-icons a {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 8px;
     padding: 10px;
-    display: block;
-}
-
-.dropdown li a:hover {
-    background: var(--hover-color);
     color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* 📱 Mobile Menu */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
+.social-icons a:hover {
+    transform: scale(1.2);
+    background: #4CAF50;
+    box-shadow: 0px 0px 15px rgba(76, 175, 80, 0.5);
 }
 
-/* ✅ Responsive Design */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: var(--primary-color);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
+/* 🔹 Footer Bottom */
+.footer-bottom {
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    font-weight: 300;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+/* 🔹 Remove Bullet Points from "Our Popular Courses" */
+.footer-section ul {
+    list-style: none; /* Removes default bullets */
+    padding: 0; /* Removes default padding */
+}
+
+.footer-section ul li {
+    margin-bottom: 10px; /* Adds spacing between items */
+}
+
+
 
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- ✅ Accessible Header -->
     <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="contact-info">
-                    <a href="tel:+919935131222" aria-label="Call us at 9935131222">📞 +91 9935131222</a>
-                    <a href="tel:+919936522408" aria-label="Call us at 9936522408">📞 +91 9936522408</a>
-                </div>
-                <div class="login-links">
-                    <a href="/faculty-login">Faculty Login</a>
-                    <a href="/officer-login">Officer Login</a>
-                    <a href="/cbt-login">CBT Login</a>
-                    <a href="/branch-login">Branch Login</a>
-                </div>
-            </div>
+      <div class="header-top">
+        <div class="container">
+          <div class="contact-info">
+            <a href="tel:+919935131222" aria-label="Call us at 9935131222"
+              >📞 +91 9935131222</a
+            >
+            <a href="tel:+919936522408" aria-label="Call us at 9936522408"
+              >📞 +91 9936522408</a
+            >
+          </div>
+          <div class="login-links">
+            <a href="/faculty-login" class="login-btn">Faculty Login</a>
+            <a href="/officer-login" class="login-btn">Officer Login</a>
+            <a href="/cbt-login" class="login-btn">CBT Login</a>
+            <a href="/branch-login" class="login-btn">Branch Login</a>
+          </div>
         </div>
-        <div class="header-main">
-            <div class="container">
-                <div class="logo">
-                    <a href="https://giteducation.com">
-                        <img src="logo.png" alt="GIT Education Logo" width="150" height="50" loading="lazy">
-                    </a>
-                </div>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">About Us</a>
-                            <ul class="dropdown">
-                                <li><a href="/about-git">About GIT</a></li>
-                                <li><a href="/our-trainers">Our Trainers</a></li>
-                                <li><a href="/our-vision">Our Vision</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/courses">Courses</a></li>
-                        <li><a href="#">Student Zone</a>
-                            <ul class="dropdown">
-                                <li><a href="/new-enrollment">New Enrollment</a></li>
-                                <li><a href="/enrollment-verification">Enrollment Verification</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-                    </ul>
-                    <button class="menu-toggle" aria-label="Open Menu">☰</button>
-                </nav>
-            </div>
+      </div>
+      <div class="header-main">
+        <div class="container">
+          <div class="logo">
+            <a href="https://giteducation.com">
+              <img
+                src="logo.png"
+                alt="GIT Education Logo"
+                width="150"
+                height="50"
+                loading="lazy"
+              />
+            </a>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="/">Home</a></li>
+              <li>
+                <a href="#">About Us</a>
+                <ul class="dropdown">
+                  <li><a href="/about-git">About GIT</a></li>
+                  <li><a href="/our-trainers">Our Trainers</a></li>
+                  <li><a href="/our-vision">Our Vision</a></li>
+                </ul>
+              </li>
+              <li><a href="/courses">Courses</a></li>
+              <li>
+                <a href="#">Student Zone</a>
+                <ul class="dropdown">
+                  <li><a href="/new-enrollment">New Enrollment</a></li>
+                  <li>
+                    <a href="/enrollment-verification"
+                      >Enrollment Verification</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li><a href="/contact-us">Contact Us</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Open Menu">☰</button>
+          </nav>
         </div>
+      </div>
     </header>
 
     <!-- ✅ Main Content -->
     <main>
-        <section class="content">
-            <h1>Welcome to GIT Education</h1>
-            <p>Start learning with expert-led courses and advance your career in IT & professional skills.</p>
-        </section>
+      <section class="content">
+        <h1>Welcome to GIT Education</h1>
+        <p>
+          Start learning with expert-led courses and advance your career in IT &
+          professional skills.
+        </p>
+      </section>
     </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>About GIT Education</h3>
+          <p>
+            GIT Education is the<strong>
+              best computer institute in Padrauna</strong
+            >, offering top-notch IT courses like DCA, ADCA, and Digital
+            Marketing to help students build a successful career in the digital
+            world.
+          </p>
+        </div>
+        <div class="footer-section courses">
+          <h3>Our Popular Courses</h3>
+          <ul>
+            <li><a href="#">Diploma in Computer Application (DCA)</a></li>
+            <li>
+              <a href="#">Advanced Diploma in Computer Application (ADCA)</a>
+            </li>
+            <li><a href="#">Digital Marketing</a></li>
+            <li><a href="#">Web Development</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact Us</h3>
+          <p>
+            Email:
+            <a href="mailto:info@giteducation.com">info@giteducation.com</a>
+          </p>
+          <p>Phone: <a href="tel:+911234567890">+91 1234567890</a></p>
+          <p>Address: Padrauna, Kushinagar, Uttar Pradesh</p>
+        </div>
+        <div class="footer-section social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2025 GIT Education | Best Computer Institute in Padrauna | All
+          Rights Reserved.
+        </p>
+      </div>
+    </footer>
 
     <!-- ✅ Optimized JavaScript -->
     <script>
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector(".nav-links").classList.toggle("active");
+      document
+        .querySelector(".menu-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
         });
     </script>
-
-</body>
+  </body>
 </html>
